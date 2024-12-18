@@ -1,0 +1,9 @@
+﻿bin/
+obj/
+/*.feature.cs
+/.vs
+/*.feature.cs
+*.feature.cs
+/.vs/VSWorkspaceState.json
+/DfE.DDS.FE.AR.TAF/ApplicationSettings/fear.AppSettings.Development.json
+/AppSettings.json
