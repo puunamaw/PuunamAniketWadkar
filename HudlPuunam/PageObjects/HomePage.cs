@@ -14,22 +14,20 @@ namespace HudlPuunam.PageObjects
 
         public bool IsHomePageLoaded()
         {
-            IWebElement element = _driver.FindElement(By.XPath("//div[@class='hui-globalusermenu']"));
+            // IWebElement element = _driver.FindElement(By.XPath("//div[@class='hui-globalusermenu']"));
+            IWebElement element = _driver.FindElement(By.XPath("//div[contains(@class,'fanWebnav_globalUserItemDisplayName')]"));
             Actions actions = new Actions(_driver);
-            actions.ClickAndHold(element).Build().Perform();
-            var isDisplayed = element.FindElement(By.XPath(".//a[contains(.,'Log Out')]")).Displayed;
+            actions.ClickAndHold(element).Build().Perform();            
+            var isDisplayed = _driver.FindElement(By.XPath("//a/span[contains(.,'Log Out')]")).Displayed;
             return isDisplayed;
         }
 
         public void ClickLogoutButton()
-        {
-            // Builds the locator with container scope 'mainnav__actions'
-            IWebElement loginLinkElement = _driver.FindElement(By.XPath("//div[@class='hui-globalusermenu']"));
-
-            // Chains the locator to ensure 'Hudl' link is nested.
-            loginLinkElement.Click();
-            loginLinkElement.FindElement(By.XPath(".//div//a[contains(.,'Log Out')]")).Click();
-
+        {            
+            IWebElement loginLinkElement = _driver.FindElement(By.XPath("//div[contains(@class,'fanWebnav_globalUserItemDisplayName')]"));
+            Actions actions = new Actions(_driver);
+            actions.ClickAndHold(loginLinkElement).Build().Perform();            
+            _driver.FindElement(By.XPath("//div//a[contains(.,'Log Out')]")).Click();
             WaitForPageLoad();
         }
     }

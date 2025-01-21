@@ -53,8 +53,9 @@ namespace HudlPuunam.PageObjects
         {
             try
             {
-                IWebElement element = _driver.FindElement(By.XPath($"//a[contains(.,'{linkname}')]"));
-                element.Click();
+                IWebElement element = _driver.FindElement(By.XPath($"//a[contains(.,'{linkname}')]|//button[contains(.,'{linkname}')]"));
+                ClickWithJavaScript(element);
+                // element.Click();
                 Console.WriteLine($"Clicked link : {linkname}");
             }
             catch (Exception)

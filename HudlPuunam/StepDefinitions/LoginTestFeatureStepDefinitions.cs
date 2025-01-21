@@ -104,8 +104,8 @@ namespace HudlPuunam.StepDefinitions
         [Then(@"I must be logged in to the application")]
         public void ThenIMustBeLoggedInToTheApplication()
         {
-            _homePage.AssertTitle(HomePage.Title);
-            Assert.That(_homePage.IsHomePageLoaded(), "Home Page is not loaded");
+            _homePage.AssertTitle("Hudl - Fan");
+           Assert.That(_homePage.IsHomePageLoaded(), "Home Page is not loaded");
         }
 
         [Then(@"I must not be logged in to the application or prevented to login")]
@@ -125,7 +125,7 @@ namespace HudlPuunam.StepDefinitions
         {
             _homePage.ClickLogoutButton();
             _commonPageFunction.WaitForPageLoad();
-            _commonPageFunction.ClickOnLinkByLinkName("Log in");
+            _commonPageFunction.ClickOnLinkByLinkName("Log In");
         }
 
         [When(@"I click the login button and enter email address to be edited and reenter valid email and proceed")]
